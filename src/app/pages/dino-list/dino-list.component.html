@@ -1,0 +1,39 @@
+
+<div>
+    <input placeholder="Buscar..." [(ngModel)]="dinoName" type="text" name="dinoName">
+</div>
+
+<div>
+    <select
+        name="dinoPeriod"
+        required
+        [(ngModel)]="dinoPeriod" size="1">
+
+        <option value="">Elegir período histórico...</option>
+          
+        <option
+            *ngFor="let period of historicalPeriodEl"
+            [value]="period"> {{ period }}</option>
+    </select>
+</div>
+
+
+<!-- escuchamos (onRemove) y (onDetail) nombres que he puesto en los output del dino.component.ts-->
+<!-- con el dino._id le indico qué id es el que quiero que borre y el que quiero que me muestre -->
+<!-- El encargado de eliminar el producto es el método creado en dino-list.component.ts -->
+
+<div class="dinos">
+    <app-dino 
+    *ngFor="let dino of dinos | search:dinoName | filter:dinoPeriod | pagination: itemsPage:currentPage"
+    [dino]="dino"
+    (onRemove)="removeDinoFromList(dino._id)"
+    (onDetail)="getDinoDetail(dino._id)"
+    >
+    </app-dino>
+    
+</div>
+
+<div>
+    <button (click)="prevPage()" [ngClass]="{'prevNext': currentPage <=1}">Anterior</button>
+    <button (click)="nextPage()" [ngClass]="{'prevNext': currentPage * itemsPage >= dinos.length}">Siguiente</button>
+</div>

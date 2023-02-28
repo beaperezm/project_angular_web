@@ -1,0 +1,35 @@
+<p class="form__contactText">Loguéate</p>
+<form (submit)="loginUser()" [formGroup]="loginForm" *ngIf="loginForm" class="form">
+    <div>
+        <input formControlName="firstName" type="text" placeholder="*Introduce tu nombre" class="form__name">
+        <p class="form__error"
+            *ngIf="!loginForm.get('firstName')?.valid && loginForm.get('firstName')?.touched && loginForm.get('firstName')?.errors?.['required']">
+            El nombre es obligatorio</p>
+        <p class="form__error"
+            *ngIf="!loginForm.get('firstName')?.valid && loginForm.get('firstName')?.touched && loginForm.get('firstName')?.errors?.['maxlength']">
+            Has excedido el límite de caracteres(Max.: 15)</p>
+    </div>
+    <div>
+        <input formControlName="email" type="email" placeholder="*Introduce tu email" class="form__email">
+        <p class="form__error"
+            *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['pattern']"
+            >El formato es incorrecto</p>
+        <p class="form__error"
+            *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']"
+           >El email es obligatorio</p>
+    </div>
+
+    <div>
+        <input formControlName="password" type="password" placeholder="*Introduce tu contraseña" class="form__password">
+        <p class="form__error"
+        *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['pattern']"
+        >Mínimo 6 caracteres, al menos una letra y un número</p>
+    <p class="form__error"
+        *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
+        >La contraseña es obligatoria</p>
+    </div>
+
+    <button type="submit" class="submit">Login</button>
+</form>
+
+<p *ngIf="formError">{{ formError }}</p>

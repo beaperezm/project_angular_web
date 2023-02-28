@@ -1,0 +1,65 @@
+<p class="form__contactText">Regístrate</p>
+<form 
+    *ngIf="signUpForm"
+    [formGroup]="signUpForm"
+    class="form"
+    (submit)="sendForm()">
+    <div>
+        <input 
+            placeholder="*Introduce tu nombre" 
+            class="form__name"
+            type="text"
+            formControlName="firstName">
+        <p class="form__error"
+            *ngIf="!signUpForm.get('firstName')?.valid && signUpForm.get('firstName')?.touched && signUpForm.get('firstName')?.errors?.['required']"
+            >El nombre es obligatorio</p>
+            <p class="form__error"
+            *ngIf="!signUpForm.get('firstName')?.valid && signUpForm.get('firstName')?.touched && signUpForm.get('firstName')?.errors?.['maxlength']"
+            >Has excedido el límite de caracteres(Max.: 10 caracteres)</p>
+            
+    </div>
+    <div>
+        <input 
+            placeholder="Introduce tu apellido" 
+            class="form__lastName"
+            formControlName="lastName">
+        <p class="form__error"
+            *ngIf="!signUpForm.get('lastName')?.valid && signUpForm.get('lastName')?.touched && signUpForm.get('lastName')?.errors?.['maxlength']"
+            >Has excedido el límite de caracteres (Max.: 15 caracteres)</p>
+    </div>
+
+    <div>
+        <input 
+            placeholder="*Email" 
+            class="form__email" 
+            type="email"
+            formControlName="email">
+        <p class="form__error"
+            *ngIf="!signUpForm.get('email')?.valid && signUpForm.get('email')?.touched && signUpForm.get('email')?.errors?.['pattern']"
+            >El formato es incorrecto</p>
+        <p class="form__error"
+            *ngIf="!signUpForm.get('email')?.valid && signUpForm.get('email')?.touched && signUpForm.get('email')?.errors?.['required']"
+           >El email es obligatorio</p>
+    </div>
+    <div>
+        <input 
+            type="password" 
+            placeholder="*Password" 
+            class="form__password"
+            formControlName="password">
+        <p class="form__error"
+            *ngIf="!signUpForm.get('password')?.valid && signUpForm.get('password')?.touched && signUpForm.get('password')?.errors?.['pattern']"
+            >Mínimo 6 caracteres, al menos una letra y un número</p>
+        <p class="form__error"
+            *ngIf="!signUpForm.get('password')?.valid && signUpForm.get('password')?.touched && signUpForm.get('password')?.errors?.['required']"
+            >La contraseña es obligatoria</p>
+    </div>
+
+
+    <button 
+        type="submit" 
+        class="submit" 
+        [disabled]="!signUpForm.valid"
+        >Enviar
+    </button>
+</form>

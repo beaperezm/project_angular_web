@@ -1,0 +1,75 @@
+<div class="header">
+    <img class= "header__img" src="../../../../assets/logo.png" [routerLink]="['dinosaurs-list']">
+</div>
+
+<!-- selectedRoute() - función creada en header.component.ts -->
+
+<nav>
+    <ul class="navBar">
+        <li>
+            <a 
+                class="navBar__routerLink" 
+                [routerLink]="['home']" 
+                [ngStyle]="{color: currentRoute === '/home' ? 'green' : 'grey'}" 
+                (click)="selectedRoute()">
+                Home
+            </a>
+        </li>
+    
+        <li>
+            <a 
+                class="navBar__routerLink" 
+                [routerLink]="['dinosaurs-list']" 
+                [ngStyle]="{color: currentRoute === '/dinosaurs-list' ? 'green' : 'grey'}" (click)="selectedRoute()">
+                Dinosaurios
+            </a>
+        </li>
+
+        <li>
+            <a 
+                class="navBar__routerLink" 
+                [routerLink]="['create-dino']" 
+                [ngStyle]="{color: currentRoute === '/create-dino' ? 'green' : 'grey'}" (click)="selectedRoute()">
+                Crear dinosaurios
+            </a>
+        </li>
+
+        <li>
+            <a 
+                class="navBar__routerLink" 
+                [routerLink]="['your-dinos']" 
+                [ngStyle]="{color: currentRoute === '/your-dinos' ? 'green' : 'grey'}" (click)="selectedRoute()">
+                Tus dinosaurios
+            </a>
+        </li>
+
+        <li>
+            <a 
+                class="navBar__routerLink" 
+                [routerLink]="['register']" 
+                [ngStyle]="{color: currentRoute === '/register' ? 'green' : 'grey'}" 
+                (click)="selectedRoute()">
+                Registro
+            </a>
+        </li>
+
+        <li>
+            <a 
+                class="navBar__routerLink" 
+                [routerLink]="['login']" 
+                [ngStyle]="{color: currentRoute === '/login' ? 'green' : 'grey'}" 
+                (click)="selectedRoute()"
+                *ngIf="!isLogged">
+                Login
+            </a>
+            <a 
+            class="navBar__routerLink" 
+            [routerLink]="['account']" 
+            [ngStyle]="{color: currentRoute === '/account' ? 'green' : 'grey'}" 
+            (click)="selectedRoute()"
+            *ngIf="isLogged">
+                Account
+        </a>
+        </li>
+    </ul>
+</nav>

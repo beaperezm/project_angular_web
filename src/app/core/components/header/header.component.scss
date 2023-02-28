@@ -1,0 +1,44 @@
+.header {
+    background: rgb(25, 25, 25);
+   // top: 0;
+    //left: 0;
+    //width: 100vw;
+    //height: auto;
+    //position: fixed;
+    //z-index: 10000;
+    //display: flex;
+    //justify-content: space-between;
+    //text-align: none;
+    //padding: 15px 20px;
+    //margin: auto;
+    &__img {
+        width: 10vw;
+        height: 18vh;
+        margin-left: 3%;
+        object-fit: cover;
+        cursor: pointer;
+        //position: relative;
+    }
+}
+
+.navBar {
+   // position: absolute;
+    font-size: 25px;
+    display: flex;
+    margin-top: -5%;
+    margin-left: 18%;
+    gap: 40px;
+    color: rgb(0, 255, 145);
+    list-style: none;
+    cursor: pointer;
+    &__routerLink {
+        //position: absolute;
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.active {
+    text-decoration: double;
+    color: aqua;
+}

@@ -1,0 +1,38 @@
+<div class="slide-container">
+    <div class="wrapper">
+        <div class="clash-card dino">
+            <div *ngIf="dino; else dinoNotFound" class="clash-card__image dino">
+                <img [src]="dino.picture" class="detail__img">
+            </div>
+            <div *ngIf="dino; else dinoNotFound">
+                <p class="clash-card__type">{{ dino.type }}</p>
+                <p class="clash-card__name">{{ dino.name }}</p>
+                <p class="clash-card__characteristics">{{ dino.characteristics }}</p>
+
+                <div class="clash-card__unit-stats clash-card__unit-stats--dino clearfix">
+                    <div class="one-third">
+                        <p class="stat">{{ dino.weight }}</p>
+                        <p class="start-value">Peso</p>
+                    </div>
+                    <div class="one-third">
+                        <p class="stat">{{ dino.length }}</p>
+                        <p class="start-value">Longitud</p>
+                    </div>
+                    <div class="one-third__no-border">
+                        <p class="stat">{{ dino.height }}</p>
+                        <p class="start-value">Altura</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="historicalPeriod" *ngIf="dino; else dinoNotFound">
+            <p>Vivió en el: {{ dino.historicalPeriod.period }}</p>
+            <p *ngIf="dino.historicalPeriod.stage"> {{ dino.historicalPeriod.stage }}</p>
+            <p *ngIf="dino.historicalPeriod.description"> {{ dino.historicalPeriod.description }}</p>
+        </div>
+    </div>
+</div>
+
+<ng-template #dinoNotFound>
+    <p class="detail__notFound">No hay un dinosaurio con ese Id</p>
+</ng-template>

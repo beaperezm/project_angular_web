@@ -1,0 +1,5 @@
+<div *ngIf="showLoading$ | async" class="loading">
+    Cargando...
+</div>
+
+<!-- el async va a coger el valor que emite el observable en cada momento (sin tener que hacer subscribe) -- true o false -->

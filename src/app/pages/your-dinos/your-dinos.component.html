@@ -1,0 +1,9 @@
+<div class="dinos">
+    <app-dino 
+    *ngFor="let dino of dinos"
+    [dino]="dino"
+    (onRemove)="removeYourDinoFromList(dino._id)"
+    (onDetail)="getYourDinoDetail(dino._id)">
+    </app-dino>
+</div>
+

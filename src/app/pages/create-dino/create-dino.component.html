@@ -1,0 +1,112 @@
+
+<!-- create-dino es un componente rehutilizable tanto para CREAR como para EDITAR dinos  -->
+
+<form
+*ngIf="dinoForm"
+(submit)="createNewDino()" 
+[formGroup]="dinoForm"
+name="dino">
+    <div class="container">
+        <input 
+            class="form__input" 
+            placeholder="Nombre"
+            type="text"
+            formControlName="name">
+        <p class="form__error"
+            *ngIf="!dinoForm.get('name')?.valid && dinoForm
+            .get('name')?.touched && dinoForm.get('name')?.errors?.['required']"
+        >El nombre es requerido</p>
+    </div>
+
+    <div class="container">
+        <input 
+            class="form__input" 
+            placeholder="Significado del nombre"
+            type="text"
+            formControlName="nameMeaning">
+        <p class="form__error"
+            *ngIf="!dinoForm.get('nameMeaning')?.valid && dinoForm
+            .get('nameMeaning')?.touched && dinoForm.get('nameMeaning')?.errors?.['required']"
+        >El significado del nombre es requerido</p>
+    </div>
+
+    <div class="container">
+        <input 
+            class="form__input" 
+            placeholder="Peso"
+            type="text"
+            formControlName="weight">
+        <p class="form__error"
+            *ngIf="!dinoForm.get('weight')?.valid && dinoForm
+            .get('weight')?.touched && dinoForm.get('weight')?.errors?.['required']"
+        >El peso es requerido</p>
+    </div>
+
+    <div class="container">
+        <input 
+            class="form__input" 
+            placeholder="Largo"
+            type="text"
+            formControlName="length">
+        <p class="form__error"
+            *ngIf="!dinoForm.get('length')?.valid && dinoForm
+            .get('length')?.touched && dinoForm.get('length')?.errors?.['required']"
+        >La longitud es requerida</p>
+    </div>
+
+    <div class="container">
+        <input 
+            class="form__input" 
+            placeholder="Alto"
+            type="text"
+            formControlName="height">
+        <p class="form__error"
+            *ngIf="!dinoForm.get('height')?.valid && dinoForm
+            .get('height')?.touched && dinoForm.get('height')?.errors?.['required']"
+        >La altura es requerida</p>
+    </div>
+
+    <div class="container">
+        <input 
+            class="form__input" 
+            placeholder="Tipo"
+            type="text"
+            formControlName="type">
+        <p class="form__error"
+            *ngIf="!dinoForm.get('type')?.valid && dinoForm
+            .get('type')?.touched && dinoForm.get('type')?.errors?.['required']"
+        >El tipo es requerido</p>
+    </div>
+
+    <div class="container">
+        <input 
+            class="form__input" 
+            placeholder="Imagen"
+            type="text"
+            formControlName="picture">
+        <p class="form__error"
+            *ngIf="!dinoForm.get('picture')?.valid && dinoForm
+            .get('picture')?.touched && dinoForm.get('picture')?.errors?.['required']"
+        >La imagen es requerida</p>
+    </div>
+
+    <div class="container">
+        <textarea 
+            class="form__input form__textArea"
+            placeholder="Características"
+            formControlName="characteristics"></textarea>
+            <p class="form__error"
+            *ngIf="!dinoForm.get('characteristics')?.valid && dinoForm
+            .get('characteristics')?.touched && dinoForm.get('characteristics')?.errors?.['required']"
+        >Las características son requeridas</p>
+        
+    </div>
+
+<!-- Si canEdit existe el nombre del botón tendrá editar dino, sino pondrá crear dino -->
+    <button 
+        class="form__button" 
+        type="submit"
+        [disabled]="!dinoForm.valid"
+    >{{ canEdit ? 'Editar dino' : 'Crear dino' }}
+    </button>
+</form>

@@ -1,0 +1,32 @@
+
+<div
+*ngIf="dino"
+class="dino">
+    <div class="card">
+        <div class="imgDino">
+            <img [src]="dino.picture" alt="image_dino">
+        </div>
+        <div class="content">
+                <h2 class="dino__name">{{ dino.name }}</h2>
+            
+            <div class="otherInfo">
+                <h3 class="nameMeaning">{{ dino.nameMeaning }}</h3>
+                <h3 class="type">{{ dino.type }}</h3>
+            </div>
+            <!-- navigateToDetail() es el método creado en dino.component.ts -->
+            <button (click)="navigateToDetail()" class="detail">Ver detalle</button>
+
+            <!-- removeDino() es el método creado en dino.component.ts -->
+            <button class="dino__delete" (click)="removeDino()">Eliminar dino</button>
+
+            <!-- editDino() es el método creado en dino.component.ts -->
+            <button class="dino__edit" (click)="editDino()">Editar dino</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <img [src]="dino.picture" alt="image_dino" class="dino__img" routerLink="/detail/{{dino._id}}"> -->

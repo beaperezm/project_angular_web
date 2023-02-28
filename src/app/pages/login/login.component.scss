@@ -1,0 +1,66 @@
+.form {
+    padding: 40px;
+    margin-top: 3%;
+    margin-left: 25%;
+    margin-bottom: 5%;
+    border: 3px solid rgb(127, 213, 7);
+    box-shadow: 0 0 10px 10px rgba(153, 255, 0, 0.453);
+    width: 600px;
+    border-radius: 50px;
+    &__contactText {
+        margin-left: 38%;
+        margin-top: 3%;
+        color:#9bdc28;
+        font-size: 80px;
+        font-weight: bold;
+        text-shadow: 2px 1px 1px rgb(1, 161, 105), 3px 2px 1px rgb(1, 134, 87), 4px 3px 1px rgb(0, 104, 67);
+        margin-bottom: 2%;
+    }
+    &__email, &__name, &__password {
+        display: flex;
+        position: relative;
+        line-height: 10px;
+        width: 60%;
+        left: 20%;
+        border: 3px solid rgba(#9bdc28, 1);
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        background: rgba(0, 255, 30, 0.468);
+        padding: 10px;
+        font-weight: bold;
+        text-transform: capitalize;
+        color: black;
+        margin-bottom: 10px;
+    }
+    &__email::placeholder, &__name::placeholder, &__password::placeholder {
+        color: black;
+        font-size: 15px;
+    }
+   
+    &__error {
+        color: rgb(236, 0, 0);
+        font-weight: bold;
+        margin-bottom: 25px;
+        margin-left: 130px;
+        margin-top: 10px;
+    }
+}
+
+.submit {
+    margin-left: 40%;
+    margin-top: 5%;
+    font-size: 18px;
+    background-color: rgba(#9bdc28, 0.807);
+    border: none;
+    padding: 0.8%;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+    width: 120px;
+    color: rgb(0, 0, 0);
+}
+.submit:hover {
+    background-color: rgb(48, 48, 48);
+    color: white
+}

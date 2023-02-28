@@ -1,0 +1,13 @@
+.icons {
+    background: rgb(25, 25, 25);
+    &__gitHubIcon{
+        font-size: 30px;
+        color: green;
+        padding: 10px;
+    }
+    &__linkedInIcon {
+        font-size: 30px;
+        color: green;
+        padding: 10px;
+    }
+}

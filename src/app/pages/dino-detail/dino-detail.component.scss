@@ -1,0 +1,122 @@
+.slide-container {
+    margin: auto;
+    width: 600px;
+    text-align: center;
+}
+
+
+.wrapper {
+    padding-top: 212px;
+    padding-bottom: 40px;
+    &:focus {
+        outline: 0;
+    }
+}
+
+.clash-card {
+    background: white;
+    width: 500px;
+    display: inline-block;
+    margin: auto;
+    border-radius: 19px;
+    position: relative;
+    text-align: center;
+    box-shadow: -1px 15px 30px -12px black;
+    z-index: 9999;
+    margin-bottom: 34px;
+    &__image {
+        position: relative;
+        height: 230px;
+        margin-bottom: 35px;
+        border-top-left-radius: 14px;
+        border-top-right-radius: 14px;
+
+    }
+
+.dino {
+    background: url('https://res.cloudinary.com/dpqw97rqh/image/upload/v1676981420/background-green_pdi4a3.jpg');
+    height: 280px;
+
+}
+
+.detail {
+    &__img {
+        width: 550px;
+        position: absolute;
+        top: -125px;
+        left: 15px;
+    }
+}
+
+.clash-card {
+    &__type{
+        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: -3px;
+        margin-top: 75px;
+        color: darkgreen;
+    }
+    &__name {
+        font-size: 26px;
+        color: black;
+        font-weight: 900;
+        margin-bottom: 5px;
+    }
+    &__characteristics {
+        padding: 20px;
+        margin-bottom: 10px;
+        
+    }
+    &__unit-stats {
+        background: darkgreen;
+        color: white;
+        font-weight: 700;
+        border-bottom-left-radius: 14px;
+        border-bottom-right-radius: 14px;
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+       
+        
+    }
+}
+
+.one-third {
+    border-right: 1px solid #2fbd47;
+    width: 33%;
+    float: left;
+    margin-bottom: 12px;
+    &__no-border {
+        border-right: none;
+    }
+}
+
+.stat {
+    position: relative;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.clearfix::after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: '';
+    clear: both;
+    height: 0;
+}
+}
+
+.historicalPeriod {
+    color: black;
+    font-weight: 300;
+    line-height: 20px;
+    font-size: 20px;
+}
