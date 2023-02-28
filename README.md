@@ -3,7 +3,7 @@
 ![imageDino](https://files.rcnradio.com/styles/image800x600/public/2020-05/dinosaurios.jpg.webp?VersionId=3gRbsYcsSmsyo2uAhSxeqX4Byrrv4ghg&itok=_Mc_5H3l)
 
 Bienvenido a la web en la que encontrarás una colección de dinosaurios.
-Esta web realiza las peticiones contra una API realizada con NodeJS.
+Esta web realiza las peticiones contra una API realizada con NodeJS y está desplegada en Vercel(https://movies-database-project-ahku.vercel.app/home)
 Dicha Api tiene recursos albergados en un servidor Cloud en MongoAtlas utilizando MongoDB como Base de Datos. La API está desplegada en Vercel (https://project-angular-api-f9ie.vercel.app/)
 
 ## Realizada Con:
@@ -15,7 +15,7 @@ Dicha Api tiene recursos albergados en un servidor Cloud en MongoAtlas utilizand
   2. Loguearte, ya que es necesario tanto para poder ver el detalle de los dinosaurios, como para poder crearlos y verlos (en "tus dinosaurios") (formulario de login controlado por errores)
 3. Aplicación con autenticación JWT.
 
-## Recusos
+## Recursos
 
 - https://www.mongodb.com/atlas/database
 - https://vercel.com/
