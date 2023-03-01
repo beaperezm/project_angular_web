@@ -1,13 +1,19 @@
 
 <div>
-    <input placeholder="Buscar..." [(ngModel)]="dinoName" type="text" name="dinoName">
+    <input 
+        placeholder="Buscar..." 
+        [(ngModel)]="dinoName" 
+        type="text" 
+        name="dinoName"
+        class="search">
 </div>
 
 <div>
     <select
         name="dinoPeriod"
         required
-        [(ngModel)]="dinoPeriod" size="1">
+        [(ngModel)]="dinoPeriod" size="1"
+        class="filter">
 
         <option value="">Elegir período histórico...</option>
           
@@ -33,7 +39,15 @@
     
 </div>
 
-<div>
-    <button (click)="prevPage()" [ngClass]="{'prevNext': currentPage <=1}">Anterior</button>
-    <button (click)="nextPage()" [ngClass]="{'prevNext': currentPage * itemsPage >= dinos.length}">Siguiente</button>
+<div class="button">
+    <button 
+        (click)="prevPage()" 
+        [ngClass]="{'prevNext': currentPage <=1}"
+        class="buttonPrev"
+        >Anterior</button>
+    <button 
+        (click)="nextPage()"
+        [ngClass]="{'prevNext': currentPage * itemsPage >= dinos.length}"
+        class="buttonNext"
+        >Siguiente</button>
 </div>

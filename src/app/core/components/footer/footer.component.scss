@@ -1,13 +1,15 @@
 .icons {
+    display: flex;
+    justify-content: center;
     background: rgb(25, 25, 25);
     &__gitHubIcon{
-        font-size: 30px;
-        color: green;
+        font-size: 35px;
+        color: #9bdc28;
         padding: 10px;
     }
     &__linkedInIcon {
-        font-size: 30px;
-        color: green;
+        font-size: 35px;
+        color: #9bdc28;
         padding: 10px;
     }
 }
