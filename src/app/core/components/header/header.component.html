@@ -5,7 +5,8 @@
 <!-- selectedRoute() - función creada en header.component.ts -->
 
 <nav>
-    <ul class="navBar">
+    <ul class="navBar"
+    [ngClass]="hamburguer ? 'isActive' : null">
         <li>
             <a 
                 class="navBar__routerLink" 
@@ -72,4 +73,6 @@
         </a>
         </li>
     </ul>
+
+    <button (click)="showHamburger()" class="hamburguer"><span class="fa-solid fa-bars"></span></button>
 </nav>

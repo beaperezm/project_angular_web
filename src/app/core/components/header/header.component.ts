@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
 
   public currentRoute?: string;
   public isLogged: boolean = false;
+  public hamburguer: boolean = false;
 
   constructor(
     //para navegar
@@ -24,7 +25,7 @@ export class HeaderComponent implements OnInit {
       this.auth.userLogged$.subscribe((isLogged) =>  this.isLogged = isLogged);
     }
 
-//
+
   public selectedRoute() {
     this.router.events.subscribe((event: Event) => {
       //si event pertenece a NavigationEnd (enrutador de angular) - la ruta actual será igual a la url del evento
@@ -33,4 +34,8 @@ export class HeaderComponent implements OnInit {
       }
     })
   }
+ public showHamburger() {
+  this.hamburguer = !this.hamburguer
+ }
+
 }

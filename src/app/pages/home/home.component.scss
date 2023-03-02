@@ -11,58 +11,52 @@
         width: 60%;
         margin-left: 15%;
     }
-
-    .dinoText {
-        width: 50%;
-    }
-    &__question {
-        font-size: 40px;
-        width: 50%;
-        //display: flex;
-        justify-content: center;
-        margin-left: 26%;
-        flex-wrap: wrap;
-        font-weight: 700;
-        margin-top: 31%;
-    }
-    &__img {
-        //display: flex;
-        //margin-top: -340px;
-        width: 50%;
-    }
-    &__text{
-        //display: flex;
-        //margin-top: -200px;
-        //text-align: center;
-        width: 50%;
-        margin-bottom: 9.6%;
-        margin-top: -60%;
-        margin-left: 40%;
-    }
-
 }
 
 .list {
-    margin-top: 8%;
-    background-color: rgba(#9bdc28, 0.8);
-    border-radius: 15px;
-    padding: 15px 20px;
-    list-style: disc;
-    line-height: 25px;
-    border: 2px solid darkgreen;
-    box-shadow: inset 10px;
-    font-size: 17px;
+    display: flex;
+    &__img{
+        width: 38%;
+        object-fit: scale-down; 
+    }
+    &__list {
+        justify-content: row;
+        width: 45%;
+        height: 50%;
+        margin-top: 4.5%;
+        margin-left: 3%;
+        background-color: rgba(#9bdc28, 0.8);
+        border-radius: 15px;
+        padding: 15px 20px;
+        line-height: 28px;
+        border: 2px solid darkgreen;
+        box-shadow: inset 10px;
+        font-size: 17px;
+        &_question{
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 5%;
+            color: darkgreen;
+            text-shadow: 1px 1px 1px rgb(0, 55, 0);
+        }
+    }
 }
 
 .lastQuest {
+    justify-content: row;
     font-size: 20px;
     margin-top: 3%;
+    margin-left: 28%;
     font-weight: 600;
     text-align: center;
 }
-button {
-    margin-left: 40%;
-    margin-top: 5%;
+.button {
+    justify-content: row;
+    align-items: center;
+    margin-left: 60%;
+    margin-top: 2%;
+    margin-bottom: 3%;
     font-size: 18px;
     background-color: rgba(#9bdc28, 0.807);
     border: none;
@@ -73,9 +67,36 @@ button {
     width: 120px;
     color: rgb(0, 0, 0);
 }
-button:hover {
+.button:hover {
     background-color: rgb(48, 48, 48);
     color: white
+}
+
+@media screen and (max-width: 768px) {
+    .dino{
+        &__title{
+            font-size: 50px;
+
+        }
+    }
+    .list{
+        display: block;
+        &__img{
+            margin-left: 23%;
+            width: 50%;
+        }
+        &__list{
+            width: 85%;
+        }
+    }
+    .lastQuest{
+        margin-top: 5%;
+        margin-left: 8%;
+    }
+    .button{
+        margin-left: 195px;
+
+    }
 }
 
 

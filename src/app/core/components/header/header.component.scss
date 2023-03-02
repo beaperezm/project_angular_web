@@ -1,28 +1,15 @@
 .header {
     background: rgb(25, 25, 25);
-   // top: 0;
-    //left: 0;
-    //width: 100vw;
-    //height: auto;
-    //position: fixed;
-    //z-index: 10000;
-    //display: flex;
-    //justify-content: space-between;
-    //text-align: none;
-    //padding: 15px 20px;
-    //margin: auto;
     &__img {
         width: 10vw;
         height: 18vh;
         margin-left: 3%;
         object-fit: cover;
         cursor: pointer;
-        //position: relative;
     }
 }
 
 .navBar {
-   // position: absolute;
     font-size: 25px;
     display: flex;
     margin-top: -5%;
@@ -32,13 +19,69 @@
     list-style: none;
     cursor: pointer;
     &__routerLink {
-        //position: absolute;
         text-decoration: none;
         color: black;
     }
 }
 
-.active {
-    text-decoration: double;
-    color: aqua;
+.hamburguer{
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 1100px) {
+    .navBar{
+        display: none;
+    }
+    .hamburguer{
+        position: relative;
+        display: block;
+        text-align: center;
+        transform: translateY(-150%);
+        margin-left: 85%;
+        font-size: 25px;
+        background-color: #9bdc28;
+        border-radius: 20%;
+        padding: 3px;
+    }
+
+    .navBar{
+        display: block;
+        position: absolute;
+        transform: translateY(10%);
+        right: 5px;
+        //top: 145px;
+        line-height: 80%;
+        background-color: rgb(25, 25, 25);
+        display: none;
+        height: 0vh;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 5s ease-in-out;
+    }
+
+    .navBar.isActive {
+        display: flex;
+        flex-direction: column;
+        height: 60%;
+        opacity: 1;
+        transition: all 2s ease-in-out;
+        z-index: 100000;
+    }
+
+    .navBar.isOff {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .hamburguer{
+        font-size: 25px;
+        background-color: #9bdc28;
+        border-radius: 20%;
+    }
+    .navBar{
+        transform: translateY(7%);;
+    }
 }
