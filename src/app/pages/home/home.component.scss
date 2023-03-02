@@ -91,12 +91,34 @@
     }
     .lastQuest{
         margin-top: 5%;
-        margin-left: 8%;
+        margin-left: 1%;
     }
     .button{
-        margin-left: 195px;
+        margin-left: 38%;
 
     }
 }
 
+@media screen and (max-width: 368px) {
+    .dino{
+        &__title{
+            font-size: 30px;
+        }
+    }
+    .list{
+        &__img{
+            width: 60%;
+        }
+        &__question{
+            font-size: 40px;
+        }
+        &__list {
+            width: 95%;
+        }
+    }
+    .button{
+        margin-left: 18%;
+
+    }
+}
 
