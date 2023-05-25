@@ -14,29 +14,29 @@ const TOKEN_KEY = 'user-token';
 export class AuthService {
 
 
-  //el (1) va a decir si el user se loguea o no
+  //the (1) will say if the user is logged in or not
   public userLogged$: ReplaySubject<boolean> = new ReplaySubject<boolean>(1);
 
   constructor(
     private http: HttpClient,
     private router: Router
   ) {
-    //el usuario está o no logueado de inicio - por ello dentro del constructor
+    //whether or not the user is logged in at startup - therefore inside the constructor
     this.userLogged$.next(this.isLogged());
    }
 
-   //Pasa a true cuando se loguea
+   //Goes to true when logged in
    public login(user: IUser): Observable<IUserSignInResponse> {
     return this.http.post<IUserSignInResponse>(`${AUTH_URL}/login`, user).pipe(
       tap((res: IUserSignInResponse) => {
-        //lo que se guarda en localStorage siempre es un string
+        //what is stored in localStorage is always a string
         const userToStore = JSON.stringify({
           token: res.token,
           id: res.user._id,
           email: res.user.email,
           firstName: res.user.firstName
         });
-        //setItem guarda un valor con la clave que nosotros queramos en el localStorage
+        //setItem saves a value with the key we want in the localStorage
         localStorage.setItem(TOKEN_KEY, userToStore);
         this.userLogged$.next(true);
         this.router.navigate(['dinosaurs-list'])
@@ -44,14 +44,14 @@ export class AuthService {
     )
    }
 
-   //Hace el post del registro
+   //Makes registration post
    public register(user: IUser): Observable<IUser> {
     return this.http.post<IUser>(`${AUTH_URL}/register`, user)
    }
 
-   //Pasa a false cuando hace logout
+   //Set to false when logging out
    public logout() {
-    //removeItem devuelve null si el el token no existe
+    //removeItem returns null if the token does not exist
     const removeToken = localStorage.removeItem(TOKEN_KEY);
     this.userLogged$.next(false);
     if(removeToken !== null) {
@@ -59,20 +59,20 @@ export class AuthService {
     }
    }
 
-   //Para consultar si el usuario está logueado o no
+   //To check if the user is logged in or not
    public isLogged(): boolean {
-    //cogemos el localStorage y buscamos con getItem el token 
+    //we take the localStorage and search with getItem for the token 
     const authToken = localStorage.getItem(TOKEN_KEY);
-    //revisamos que si no hay token nos devuelva false
+    //we check that if there is no token we return false
     if(!authToken) { return false;}
-    const isValidToken = JSON.parse(authToken)?.token; //devuelve true o false
+    const isValidToken = JSON.parse(authToken)?.token; //returns true or false
     return !!isValidToken;
    }
 
-   //Para obtener el token actual
+   //to get the current token
    public getToken() {
     const authToken = localStorage.getItem(TOKEN_KEY);
-    //devuelveme el token sino devuélve null
+    //give me back the token otherwise return null
     return authToken ? JSON.parse(authToken)?.token : null;
    }
 }

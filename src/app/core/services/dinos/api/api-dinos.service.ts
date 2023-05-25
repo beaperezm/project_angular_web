@@ -5,9 +5,9 @@ import { Dino } from '../dino.models';
 import { ApiDino } from './api-dino.models';
 
 
-//Para poder hacer peticiones a la API con HTTPClient (importado en app)
+//To be able to make API requests with HTTPClient (imported in app)
 
-//URL de la API 
+//aPI url 
 const API_DINO_URL = "https://project-angular-api-f9ie.vercel.app"
 
 @Injectable({
@@ -22,15 +22,15 @@ export class ApiDinosService {
   ) { }
 
 
-  //Peticiones de los dinosaurios
+  //Dinosaur requests
     
-    //ApiDino[] --> devuelve un array porque devuelve todos los dinos
+    //ApiDino[] --> returns an array because it returns all the dinos
     public getApiDinos(): Observable<ApiDino[]> {
     return this.http.get<ApiDino[]>(`${API_DINO_URL}/dinosaurs`);
    }
 
    
-   //ApiDino porque es el que tiene el dato transformado con los datos que yo he elegido (devuelve un solo Dino)
+   //ApiDino because it is the one that has the data transformed with the data I have chosen (it returns only one Dino)
    public getApiDinoDetail(id: string): Observable<ApiDino> {
     return this.http.get<ApiDino>(`${API_DINO_URL}/dinosaurs/${id}`);
    }
@@ -44,7 +44,7 @@ export class ApiDinosService {
    }
 
 
-   //Peticiones de los dinosaurios creados por el usuario
+   //Requests for user-created dinosaurs
    
    public getApiYourDino(): Observable<ApiDino[]>{
     return this.http.get<ApiDino[]>(`${API_DINO_URL }/yourDinosaurs`)

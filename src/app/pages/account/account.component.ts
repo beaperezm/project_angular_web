@@ -12,13 +12,13 @@ export class AccountComponent {
 
 
   constructor(
-    //para poder hacer el logout
+    //to be able to logout
     private auth: AuthService,
   ){}
 
-  //no hago el subscribe por el logout porq en este caso no es algo asíncrono
+  //I do not subscribe for the logout because in this case it is not asynchronous
   public logoutUser() {
-    this.auth.logout();  //va a permitir hacer el logout
+    this.auth.logout();  //it will allow to logout
   }
 
 }

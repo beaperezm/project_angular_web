@@ -9,31 +9,31 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth/auth.service';
 
 
-//Se va a ejecutar antes de que se lance cualquier petición a la API
+//It will be executed before any API request is launched
 
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
   constructor(
-    //para saber si el usuario está o no logueado
+    //to know if the user is logged in or not
     private authService: AuthService
   ) {}
 
-  //Se ejecuta antes de la llamada a la api
+  //It is executed before the api call
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.authService.getToken();
 
-    //con esto consigo que todas las peticiones (las que yo he decidido en el backend) que se hagan a la api se les añada la cabecera con el token (en este caso el post, put y delete)
+    //with this I get that all requests (the ones I have decided in the backend) that are made to the api are added the header with the token (in this case the post, put and delete)
     if (token) {
-      //request.clone hace una copia de la request actual a la que le añado la info setHeaders con Bearer + el token
+      //request.clone makes a copy of the current request to which I add the info setHeaders with Bearer + the token
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`
         }
       });
     }
-    //lo coge del servidor y comprueba si el token es correcto --> si lo es va funcionar
+    //get it from the server and check if the token is correct --> if it is correct it will work
     return next.handle(request);
   }
 }

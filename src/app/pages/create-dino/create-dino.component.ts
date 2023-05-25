@@ -15,29 +15,29 @@ import { DinosService } from 'src/app/core/services/dinos/dinos.service'
 })
 export class CreateDinoComponent {
 
-  //FormGroup --> engloba los campos del formulario
+  //FormGroup --> includes the fields of the form
   public dinoForm?: FormGroup;
   public historicalPeriodEl: DinoHistoricalPeriod[] = historicalPeriod;
-  //para saber cuándo estamos editando y cuándo no
+  //to know when we are editing and when we are not
   public canEdit: Boolean = false;
   public dinoId?: string;
-  //creada para el canDeactivate
+  //created for the canDeactivate
   public isDinoCreated: boolean = false
   
-  //activateRoute para poder hacer un queryParam y así poder editar un dino (por su _id)
+  //activateRoute to be able to do a queryParam to be able to edit a dino (by its _id)
   constructor (
     private fb: FormBuilder, 
     private activatedRoute: ActivatedRoute, 
     private dinosService: DinosService,
     private router: Router) {
    
-    //si en el queryParams viene el id editaremos al dino sino crearemos un dino nuevo
+    //if the queryParams contains the id, we will edit the dino, otherwise we will create a new dino
     this.activatedRoute.queryParams.pipe(
       map((queryParams) => queryParams['id']),
-      //para quedarme solo con su id
+      //to be left alone with your id
       switchMap((id: string) => {
         if(!id) {
-          //sino hay id el dino será undefined
+          //if there is no id the dino will be undefined
           return of(undefined)
         } else {
           this.dinoId = id
@@ -45,7 +45,7 @@ export class CreateDinoComponent {
         }
       })
     ).subscribe((dino?: Dino) => {
-      //si hay un dino definido canEdit pasa a ser true
+      //if there is a dino defined canEdit becomes true
       this.canEdit = !!dino;
       this.createNewForm(dino);
 
@@ -57,21 +57,21 @@ export class CreateDinoComponent {
     
     const dinoRequest = this.canEdit && this.dinoId ? this.dinosService.editYourDino(this.dinoId, this.dinoForm?.value) : this.dinosService.createYourDino(this.dinoForm?.value)
  
-  //una vez que sabemos si vamos a editar o crear nos suscribimos a uno u otro - para luego resetar el form y navegar a la lista de dinos
+  //once we know whether we are going to edit or create we subscribe to one or the other - and then reset the form and navigate to the list of dinos
     dinoRequest.subscribe(() => {
       this.isDinoCreated = true;
-      //reseteamos el valor cuando todo haya ido ok
+      //reset the value when everything has gone ok
       this.dinoForm?.reset();
-      //navegamos a your-dinos para ver el cambio
+      //we navigated to your-dinos to see the change
       this.router.navigate(['your-dinos']);
       
     })
   }
 
   public createNewForm(dino?: Dino) {
-    //fb.group recibe un objeto en el que añadiré todos los campos que quiera que tenga mi formulario
+    //fb.group receives an object in which I will add all the fields I want my form to have
     this.dinoForm = this.fb.group({
-      //formControl hace referencia a un campo específico
+      //formControl refers to a specific field
       name: new FormControl(dino?.name || '', [Validators.required]),
       nameMeaning: new FormControl(dino?.nameMeaning || '', [Validators.required]),
       weight: new FormControl(dino?.weight || '', [Validators.required]),

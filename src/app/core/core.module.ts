@@ -8,7 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 
-//COREMODULE.ts es la raíz de toda nuestra aplicación
+//COREMODULE.ts is the root of our entire application
 
 @NgModule({
   declarations: [
@@ -28,10 +28,10 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
   ],
   providers: [
     {
-      //quiero proveer como interceptor HTTP mi web la clase AuthInterceptor
+      //I want to provide as HTTP interceptor my web site with the AuthInterceptor class
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor, //es el nombre de la class del auth.interceptor.ts
-      multi: true //sirve si quieres tener más de un interceptor aplicando en la web
+      useClass: AuthInterceptor, //is the name of the class of auth.interceptor.ts
+      multi: true //is useful if you want to have more than one interceptor applying on the web
     }
   ]
 })

@@ -1,5 +1,9 @@
-<div *ngIf="showLoading$ | async" class="loading">
-    Cargando...
+<div 
+    class="loading"
+    *ngIf="showLoading$ | async"
+>
+    <div class="loader"></div>
+    <div class="loader2"></div>	
 </div>
 
-<!-- el async va a coger el valor que emite el observable en cada momento (sin tener que hacer subscribe) -- true o false -->
+<!-- the async will take the value emitted by the observable at each moment (without having to subscribe)  true or false -->

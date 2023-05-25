@@ -1,4 +1,4 @@
-//interface con todos los datos que vienen de la API
+//interface with all data coming from the API
 
 export interface ApiDino {
     _id: string,
@@ -24,8 +24,3 @@ export type DinoHistoricalPeriod =
 'Período Triásico'
 | 'Período Jurásico'
 | 'Período Cretácico';
-
-// export type DinoType =
-// 'Herbívoro'
-// | 'Carnívoro'
-// | 'Omnívoro';

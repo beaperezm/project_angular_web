@@ -30,7 +30,7 @@ export class SignUpComponent {
     if(!this.signUpForm?.valid) { return; }
     const userSignUp: IUserSignUp = this.signUpForm?.value;
     this.signUpService.createSignUpUser(userSignUp).subscribe({
-      //errores que vienen de la API
+      //errors coming from the API
       next: (res) => {
         console.log(res),
         this.signUpForm?.reset();

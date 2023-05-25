@@ -50,14 +50,12 @@
         position: absolute;
         transform: translateY(10%);
         right: 5px;
-        //top: 145px;
         line-height: 80%;
         background-color: rgb(25, 25, 25);
         display: none;
         height: 0vh;
         opacity: 0;
         overflow: hidden;
-        //transition: all 5s ease-in-out;
     }
 
     .navBar.isActive {
@@ -65,7 +63,6 @@
         flex-direction: column;
         height: 60%;
         opacity: 1;
-        //transition: all 2s ease-in-out;
         z-index: 100000;
     }
 

@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 
-//Importado Http Cliente para poder hacer las peticiones a la API
-//Importado el Core Module
+//Imported Http Client to be able to make requests to the API
+//Imported Core Module
 
 @NgModule({
   declarations: [

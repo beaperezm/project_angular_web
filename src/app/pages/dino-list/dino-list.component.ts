@@ -24,28 +24,28 @@ export class DinoListComponent implements OnInit{
   public dinos: Dino[] = [];
 
   constructor(
-    //servicio que trae la información transformada
+    //service that brings the transformed information
     private dinosService: DinosService,
     private router: Router) {}
 
   public ngOnInit(): void {
     this.dinosService.getDinos().subscribe((dinosFromApi) => {
-      //escucho lo valores emitidos desde la Api y los guardo en mi propio array de dinos
+      //I listen to the values emitted from the Api and store them in my own array of dinos
       this.dinos = dinosFromApi;
     })
   }
 
-  //método que va a eliminar al dino que yo decida
+  //method that will eliminate the dino of my choice
   public removeDinoFromList(id: string) {
     if(!id) { return; }
-    //borro al dino
+    //delete dino
     this.dinosService.deleteDino(id).pipe(
-      //concateno para obtener los dinos nuevos (sin el eliminado)
+      //concatenate to obtain the new dinos (without the deleted one)
       switchMap((dino) => {
         return this.dinosService.getDinos(); 
       })
     )
-    //guardo a los dinos
+    //keep dinos
     .subscribe((dinosFromApi) => {
       this.dinos = dinosFromApi;
     });

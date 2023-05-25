@@ -11,10 +11,10 @@ export class DinoComponent {
 
   @Input() public dino?: Dino;
 
-  //con este output permito en dino-list.html y your-dinos.html puedan llamar a removeDino
+  //with this output I allow in dino-list.html and your-dinos.html to call removeDino
   @Output() public onRemove: EventEmitter<void> = new EventEmitter<void>();
 
-  //con este output permito en dino-list.html y your-dinos.html puedan llamar a navigateToDetail
+  //with this output I allow in dino-list.html and your-dinos.html to call navigateToDetail
   @Output() public onDetail: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private router: Router){}
@@ -23,13 +23,13 @@ export class DinoComponent {
     this.onDetail.emit()
   }
 
-  //se crea la función con la lógica para elimine el dinosaurio
+  //function is created with logic to eliminate the dinosaur
   public removeDino() {
    this.onRemove.emit()
   }
 
   public editDino() {
-    //la opción queryParams con la que queremos hacer la navegación
+    //the queryParams option with which we want to do the navigation
     this.router.navigate(['create-dino'], {queryParams: {
       id: this.dino?._id
     }});

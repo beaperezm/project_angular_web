@@ -18,7 +18,7 @@ export class YourDinosComponent implements OnInit{
   public dino?: Dino;
  
 
-  //es un Dino[] porque llega ya transformado (transformación del observable dinos.service.ts y del dino.models)
+  //is a Dino[] because it arrives already transformed (transformation of the observable dinos.service.ts and of the dino.models)
   public dinos: Dino[] = [];
 
 
@@ -35,14 +35,14 @@ export class YourDinosComponent implements OnInit{
 
    public removeYourDinoFromList(id: string) {
     if(!id) { return; }
-    //borro al dino
+    //delete dino
     this.dinosService.deleteYourDino(id).pipe(
-      //concateno para obtener los dinos nuevos (sin el eliminado)
+      //concatenate to obtain the new dinos (without the deleted one)
       switchMap((dino) => {
         return this.dinosService.getYourDinos(); 
       })
     )
-    //guardo a los dinos
+    //I keep the dinos
     .subscribe((dinosFromApi) => {
       this.dinos = dinosFromApi;
     });

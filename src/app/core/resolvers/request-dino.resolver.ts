@@ -9,13 +9,13 @@ import { Dino } from '../services/dinos/dino.models';
 import { DinosService } from '../services/dinos/dinos.service';
 
 
-//No se va a mostrar la vista del detalle del dinosaurio hasta que se haya cargado toda la información de dicha página
+//The dinosaur detail view will not be displayed until all the information on that page has been loaded
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestDinoResolver implements Resolve<Dino | null> { 
-  //Devuelve un dino
+  //Returns a dino
 
   constructor(private dinoService: DinosService) {}
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Dino | null > {

@@ -10,7 +10,7 @@ import { LoadingService } from '../../services/loading/loading.service';
 })
 export class LoadingComponent implements OnInit {
 
-//Para hacer que el loading se muestre o no
+//To make the loading show up or not
 
   public showLoading$?: Observable<boolean>;
 
@@ -18,6 +18,6 @@ export class LoadingComponent implements OnInit {
 
   public ngOnInit(): void {
     this.showLoading$ = this.loadingService.shouldShowLoading$;
-  //no hago el subscribe porque he usado el async en el loading.component.html
+  //I don't do the subscribe because I have used the async in the loading.component.html
   }
 }

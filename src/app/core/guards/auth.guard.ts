@@ -8,25 +8,25 @@ import { AuthService } from '../services/auth/auth.service';
   providedIn: 'root'
 })
 
-//Va a permitir o no que el usario acceda a ciertas páginas en función de si está o no logueado
+//It will allow or not allow the user to access certain pages depending on whether or not he/she is logged in.
 
 export class AuthGuard implements CanActivate {
 
   constructor(
-    //para saber si el usuario está o no logueado
+    //to know if the user is logged in or not.
     private auth: AuthService,
-    //para navegar a la urlTree que le he indicado (login)
+    //to navigate to the urlTree I have specified (login)
     private router: Router){}
 
 
   canActivate(
-    route: ActivatedRouteSnapshot, //información de la ruta activa
+    route: ActivatedRouteSnapshot, //active route information
 
-    //estado de la ruta
+    //condition of the route
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     return this.auth.userLogged$.pipe(
-      //la guardia mira que valor tiene el userLogged y en función de eso pasa o no
+      //the guard looks at the value of the userLogged and depending on that it passes or not.
       take(1),
       map((isLogged: boolean) => {
         if(isLogged) {return true; }

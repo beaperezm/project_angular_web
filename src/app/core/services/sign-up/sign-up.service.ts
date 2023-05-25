@@ -10,7 +10,7 @@ import { transformUser } from './userSignUp.helpers';
   providedIn: 'root'
 })
 
-//Para el registro con el modelo de datos transformados
+//For registration with the transformed data model
 
 export class SignUpService {
   

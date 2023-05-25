@@ -6,7 +6,7 @@ import { SearchPipe } from './pipes/search/search.pipe';
 import { DinoComponent } from './components/dino/dino.component';
 
 
-//Añadido en exports las pipes y el componente Dino - para poder 'compartirlos' 
+//Added in exports the pipes and the Dino component - for 'sharing'. 
 
 @NgModule({
   declarations: [

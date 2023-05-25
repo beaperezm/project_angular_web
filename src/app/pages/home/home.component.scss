@@ -88,6 +88,7 @@
         &__list{
             width: 85%;
         }
+
     }
     .lastQuest{
         margin-top: 5%;
@@ -99,7 +100,7 @@
     }
 }
 
-@media screen and (max-width: 368px) {
+@media screen and (max-width: 372px) {
     .dino{
         &__title{
             font-size: 30px;

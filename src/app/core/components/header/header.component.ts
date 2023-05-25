@@ -14,21 +14,21 @@ export class HeaderComponent implements OnInit {
   public hamburguer: boolean = false;
 
   constructor(
-    //para navegar
+    //to navigate
     private router: Router,
-    //para autenticar si user está o no logged
+    //to authenticate whether or not the user is logged in
     private auth: AuthService
     ){}
 
     public ngOnInit(): void {
-      //que la variable isLogged sea siempre igual a lo que nos venga del observable - de esta forma con el ngIf creado en el header.component.html pondrá account o login en función de si el ususario está o no logueado
+      //that the isLogged variable is always equal to what comes from the observable - this way with the ngIf created in the header.component.html it will set account or login depending on whether the user is logged in or not.
       this.auth.userLogged$.subscribe((isLogged) =>  this.isLogged = isLogged);
     }
 
 
   public selectedRoute() {
     this.router.events.subscribe((event: Event) => {
-      //si event pertenece a NavigationEnd (enrutador de angular) - la ruta actual será igual a la url del evento
+      //if event belongs to NavigationEnd (angular router) - the current route will be equal to the event url
       if(event instanceof NavigationEnd) {
         this.currentRoute = event.url;
       }
@@ -37,5 +37,4 @@ export class HeaderComponent implements OnInit {
  public showHamburger() {
   this.hamburguer = !this.hamburguer
  }
-
 }

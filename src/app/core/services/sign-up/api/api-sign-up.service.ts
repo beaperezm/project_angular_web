@@ -5,7 +5,7 @@ import { IUserSignUp } from '../models/sign-up.models';
 import { IApiUserSignUp } from './models/api-sign-up.models';
 
 
-//Para el registro - con el modelo de datos de la api
+//For the registration - with the api data model
 
 const SIGNUP_URL = "https://project-angular-api-f9ie.vercel.app/user";
 

@@ -5,11 +5,11 @@ import { ExitGuard } from './core/guards/exit.guard';
 import { RequestDinoResolver } from './core/resolvers/request-dino.resolver';
 
 
-//Añadidas las rutas de la web
+//Added web routes
 
 const routes: Routes = [
 
-  //path vacío redirige a la home
+  //empty path redirects to home
   {
     path: '',
     redirectTo: 'home',
@@ -27,16 +27,16 @@ const routes: Routes = [
     path: 'detail/:id',
    loadChildren: () => import ('./pages/dino-detail/dino-detail.module').then(m => m.DinoDetailModule),
 
-   //solo se puede acceder si se está logueado
+   //access is only possible if you are logged in
    canActivate: [AuthGuard],
 
-   //hasta que no carge el detalle no llevará a la ruta del detalle
+   //until the detail is loaded, it will not lead to the detail path
    resolve: [RequestDinoResolver] 
   },
   {
     path: 'create-dino',
    loadChildren: () => import ('./pages/create-dino/create-dino.module').then(m => m.CreateDinoModule),
-   //solo se puede acceder si se está logueado
+   //access is only possible if you are logged in
    canActivate: [AuthGuard]
   },
   {
@@ -47,7 +47,7 @@ const routes: Routes = [
   {
     path: 'yourDinosaurs/:id',
    loadChildren: () => import ('./pages/yourDino-detail/your-dino-detail.module').then(m => m.YourDinoDetailModule),
-   //solo se puede acceder si se está logueado
+   //access is only possible if you are logged in
    canActivate: [AuthGuard]
   },
   {
@@ -61,7 +61,7 @@ const routes: Routes = [
   {
     path: 'account',
    loadChildren: () => import ('./pages/account/account.module').then(m => m.AccountModule),
-   //solo se puede acceder si se está logueado
+   //access is only possible if you are logged in
    canActivate: [AuthGuard]
   },
 

@@ -9,13 +9,13 @@ import { HistoricalPeriod } from './historical-period.models';
 })
 export class HistoricalPeriodService {
 
-  //El servicio que tiene los períodos históricos de la api ==>  ApiHistoricalPeriodService
+  //The service that has the historical periods of the api ==> ApiHistoricalPeriodService
   constructor(private apiHistoricalPeriodService: ApiHistoricalPeriodService) { }
 
   public getHistoricalPeriods(): Observable<HistoricalPeriod[]> {
     return this.apiHistoricalPeriodService.getApiHistoricalPeriods().pipe(
       map((apiHistoricalPeriods: ApiHistoricalPeriod[]) => {
-        //va a devolver un objeto solo con la info que me interesa para ello he puesto
+        //is going to return an object only with the info I am interested in, for this I have put
         return apiHistoricalPeriods.map((apiHistoricalPeriod) => ({
           _id: apiHistoricalPeriod._id,
           period: apiHistoricalPeriod.period,

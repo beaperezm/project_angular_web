@@ -11,8 +11,8 @@ import { transformDino } from './dinos.helpers';
   providedIn: 'root'
 })
 
-//SERVICIO TRANSFORMADO
-//es el que tiene el modelo que nosotros queremos - con los datos que hemos elegido de la api 
+//TRANSFORMED SERVICE
+//is the one that has the model that we want - with the data we have chosen from the api
 
 export class DinosService {
 
@@ -21,38 +21,38 @@ export class DinosService {
     private historicalPeriodService: HistoricalPeriodService,
     private loadingService: LoadingService) { }
 
-  //Crear el método
+  //Create the method
 
-  //PARA LOS DINOSAURIOS
+  //FOR DINOSAURS
 
- //Array de Dino ya transformado
+ //Dino Array already transformed
   public getDinos(): Observable<Dino[]> {
-    //antes de recuperar los dinos muestre el loading
+    //before retrieving the dinos show the loading
     this.loadingService.showLoading();
    
-    //con pipe concateno acciones 
+    //with pipe I concatenate actions 
     return this.apiDinosService.getApiDinos().pipe(
-      //map recibe los dinos de la api y devuelve los datos transformados
+      //map receives the api dinos and returns the transformed data
       map((dinos: ApiDino[]) => {
-        //el dinos.map --> transforma cada uno de los ApiDinos --> en un dino
-        //tranformDino es la función que devuelve una copia sin los campos que yo he decidido
+        //dinos.map --> transforms each one of the ApiDinos --> into a dino
+        //tranformDino is the function that returns a copy without the fields that I have decided on
         return dinos.map((dino) => transformDino(dino));
       }),
-      //una vez que ha mostrado los dinos que se quite el loading; tap no afecta al valor que me devuelve el servicio
+      //once it has displayed the dinos the loading is removed; tap does not affect the value returned by the service
       tap(() => this.loadingService.hideLoading())
     );
   }
   
-    //va a ser el observable de un solo dino
+    //is going to be the observable of a single dino
     public getDinoDetail(id: string): Observable<Dino> {
-      //forkJoin --> para combinar las peticiones de dinos y períodos históricos
+      //forkJoin --> to combine requests for dinos and historical periods
       return forkJoin([
         this.apiDinosService.getApiDinoDetail(id),
         this.historicalPeriodService.getHistoricalPeriods()
       ]).pipe(
         map(([apiDino, historicalPeriods]) => {
          
-          //dentro de historicalPeriods estoy buscando qué periodo histórico tiene el mismo nombre que el de apiDino y se lo paso a la función: transformDino
+          //inside historicalPeriods I am looking for which historical period has the same name as apiDino and I pass it to the function: transformDino
           const selectedHistoricalPeriod = historicalPeriods.find((historicalPeriod) => historicalPeriod.period === apiDino.historicalPeriod);
           return transformDino(apiDino, selectedHistoricalPeriod);
         })
@@ -60,7 +60,7 @@ export class DinosService {
     }
 
 
-     //al deleteDino le paso el id que es el valor que quiero que tenga en cuanta a la hora de borrar
+     //to deleteDino I pass the id which is the value I want to be taken into account when deleting
     public deleteDino(id: string): Observable<Dino> {
       return this.apiDinosService.deleteApiDino(id).pipe(
         map(dino => transformDino(dino))
@@ -73,7 +73,7 @@ export class DinosService {
       );
     }
 
-      //PARA LOS DINOSAURIOS CREADOS POR EL USUARIO
+      //FOR DINOSAURS CREATED BY THE USER
 
     public getYourDinos(): Observable<Dino[]> {
       this.loadingService.showLoading();

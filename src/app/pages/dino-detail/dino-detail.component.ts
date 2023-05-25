@@ -14,7 +14,7 @@ export class DinoDetailComponent {
 
   constructor(private activatedRoute: ActivatedRoute, private dinosService: DinosService) {
 
-    //data es info sobre la ruta
+    //data is info about the route
     this.activatedRoute.data.subscribe((data) => {
       if(data[0]) {
         this.dino = data[0]

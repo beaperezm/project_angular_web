@@ -8,24 +8,24 @@ import { ReplaySubject } from 'rxjs';
 })
 export class LoadingService {
 
-  //Va a devolver si se debe mostrar el loading o no
+  //It will return whether loading should be shown or not
   public shouldShowLoading$: ReplaySubject<boolean> = new ReplaySubject<boolean>();
 
   
 
   constructor() { 
-    //Cuando se construya el servicio quiero que inicialmente no haya loading
+    //When the service is built, I want there to be no loading initially
     this.shouldShowLoading$.next(false);
   }
 
-  //Se crean dos métodos: 
+  //Two methods are created: 
 
-  //uno para mostrar el loading 
+  //one to show the loading 
   public showLoading() {
     this.shouldShowLoading$.next(true);
   }
 
-  //otro para ocultar el loading
+  //another to hide the loading
   public hideLoading() {
     this.shouldShowLoading$.next(false);
   }

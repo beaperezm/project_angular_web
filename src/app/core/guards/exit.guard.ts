@@ -8,20 +8,20 @@ import { CreateDinoComponent } from 'src/app/pages/create-dino/create-dino.compo
   providedIn: 'root'
 })
 
-//Va a permitir o no que el usuario abandone una página (sin antes confirmar)
+//Whether or not to allow the user to leave a page (without first confirming)
 
 export class ExitGuard implements CanDeactivate<CreateDinoComponent> {
   canDeactivate(
 
-    //Añado el componente en el quiero usar el canDeactivate (que el user no pueda salir sin antes aceptar un mensaje)
+    //I add the component in which I want to use the canDeactivate (that the user cannot exit without first accepting a message)
     component: CreateDinoComponent,
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
-    nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree { //nextState es la ruta de la que el user está intentado salir -- tiene que devolver boolean y/o urlTree
+    nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree { //nextState is the path the user is trying to exit from -- must return boolean and/or urlTree
     
-      //si el dino si está creado o el formulario no se ha tocado no hay que mostrar el window.confirm
+      //if the dino is created or the form has not been touched, the window.confirm does not need to be displayed.
       if(component?.isDinoCreated || !component?.dinoForm?.dirty) { return true; }
-    //sino saldrá el window.confirm para que el ususario acepte si quiere o no salir
+    //otherwise the window.confirm will be displayed for the user to accept whether or not to exit.
       return window.confirm('¿Deseas salir? No se guardarán los datos'); 
       }
   }

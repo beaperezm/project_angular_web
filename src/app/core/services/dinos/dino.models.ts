@@ -1,6 +1,6 @@
 import { HistoricalPeriod } from "../historical_period/historical-period.models";
 
-//interface con los datos que voy a usar
+//interface with the data I am going to use
 
 export interface Dino {
     _id: string,
@@ -10,7 +10,7 @@ export interface Dino {
     weight: string,
     length: string,
     height: string,
-    historicalPeriod: HistoricalPeriod, //interface creada en historical-period.models.ts
+    historicalPeriod: HistoricalPeriod, //interface created in historical-period.models.ts
     picture: string,
     characteristics: string,
 }

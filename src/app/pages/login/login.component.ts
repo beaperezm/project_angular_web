@@ -29,18 +29,18 @@ export class LoginComponent {
   public loginUser() {
     if(!this.loginForm?.valid) { return; }
     const user: IUser = this.loginForm.value;
-    //se copiaría y pegaría el formulario, cuando se haga el submit del formulario es cuando se haría el login
+    //the form would be copied and pasted, when the form is submitted is when the login would be done.
     this.auth.login(user).subscribe({
       next: (res) => {
         console.log(res),
         this.loginForm?.reset(); 
       },
       error: (err) => {
-        //coge el error que viene de la API
+        //catches the error coming from the API
         this.formError = err.error,
         this.loginForm?.reset(); 
       }
     }); 
-    this.router.navigate(['account']) //cuando haga login accederá a la cuenta
+    this.router.navigate(['account']) //when you login you will access the account
   }
 }
